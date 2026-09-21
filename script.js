@@ -30,7 +30,7 @@ document.querySelectorAll('[data-booking-position]').forEach((link) => {
       event: 'booking_cta_click',
       position: link.dataset.bookingPosition
     });
-    navigator.sendBeacon?.('/api/booking-event', payload);
+    navigator.sendBeacon?.((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/booking-event', payload);
   });
 });
 

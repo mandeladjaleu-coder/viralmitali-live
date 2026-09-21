@@ -3,7 +3,7 @@
 (() => {
   const seite = (location.pathname.split('/').filter(Boolean)[0]) || 'start';
   const zaehle = (event, position) => {
-    try { navigator.sendBeacon?.('/api/booking-event', JSON.stringify({ event, position })); } catch (e) { /* Messung blockiert nie */ }
+    try { navigator.sendBeacon?.((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/booking-event', JSON.stringify({ event, position })); } catch (e) { /* Messung blockiert nie */ }
   };
 
   /* ---------- Herkunft: nur aus der aktuellen Adresse, nichts wird im Browser gespeichert ---------- */
@@ -65,7 +65,7 @@
       knopf.textContent = 'Wird gesendet …';
       zaehle('lead_submit', art);
       try {
-        const r = await fetch('/api/anfrage', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(daten) });
+        const r = await fetch((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/anfrage', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(daten) });
         if (r.status === 429) throw new Error('viele');
         if (!r.ok) throw new Error(String(r.status));
         zaehle('lead_success', art);

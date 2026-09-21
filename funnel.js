@@ -6,7 +6,7 @@
   const seite = (location.pathname.split('/').filter(Boolean)[0]) || 'start';
   const zaehle = (event, position) => {
     try {
-      navigator.sendBeacon?.('/api/booking-event', JSON.stringify({ event, position }));
+      navigator.sendBeacon?.((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/booking-event', JSON.stringify({ event, position }));
     } catch (e) { /* Messung darf nie den Weg blockieren */ }
   };
 
@@ -138,7 +138,7 @@
       bu.zeiten.hidden = true;
       let daten;
       try {
-        const r = await fetch(`/api/slots?von=${berlinDatum(0)}&bis=${berlinDatum(13)}`, {
+        const r = await fetch(`${(document.querySelector('meta[name="vma-api"]')?.content || '')}/api/slots?von=${berlinDatum(0)}&bis=${berlinDatum(13)}`, {
           headers: { accept: 'application/json' },
           ...(AbortSignal.timeout ? { signal: AbortSignal.timeout(15000) } : {})
         });
@@ -245,7 +245,7 @@
         bu.absenden.textContent = 'Termin wird gebucht …';
         zaehle('booking_submit', buPosition);
         try {
-          const r = await fetch('/api/buchen', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(daten) });
+          const r = await fetch((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/buchen', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(daten) });
           const antwort = await r.json().catch(() => ({}));
           if (r.ok && antwort.ok) {
             zaehle('booking_success', buPosition);
