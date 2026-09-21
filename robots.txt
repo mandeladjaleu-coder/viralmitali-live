@@ -1,0 +1,43 @@
+# robots.txt für viralmitali.de
+# Bewusste Entscheidung: Suchmaschinen und KI-Crawler dürfen alle öffentlichen Seiten lesen,
+# damit Viral mit Ali in Google, Bing sowie in Antworten von ChatGPT, Perplexity, Gemini,
+# Claude und Apple Intelligence korrekt beschrieben und verlinkt werden kann.
+
+User-agent: *
+Allow: /
+
+# OpenAI: Training (GPTBot), Suche in ChatGPT (OAI-SearchBot), Abrufe auf Nutzerwunsch (ChatGPT-User)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Google Gemini und Vertex AI (Google-Extended), Apple Intelligence (Applebot-Extended)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://viralmitali.de/sitemap.xml

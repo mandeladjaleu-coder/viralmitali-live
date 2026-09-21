@@ -1,0 +1,168 @@
+/* Blog, Brotkrumen, Definition und Artikel: baut auf style.css und funnel.css auf. Keine Inline-Styles (CSP). */
+
+.brotkrumen ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;margin:0 0 22px;padding:0;font-size:.84rem;color:var(--dim)}
+.brotkrumen li{display:inline-flex;align-items:center;min-width:0}
+.brotkrumen li+li::before{content:"/";margin-right:8px;color:var(--dim)}
+.brotkrumen a{display:inline-flex;align-items:center;min-height:24px;color:var(--muted);text-decoration:none}
+.brotkrumen a:hover{color:#fff}
+.brotkrumen [aria-current]{display:block;color:#b9b9c2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:40ch}
+
+.definition{max-width:46rem;padding:12px 16px;border-left:2px solid var(--violet-hell);background:rgba(168,117,255,.07);border-radius:0 12px 12px 0;color:#d4d4dc;font-size:.92rem;line-height:1.55}
+.nf-definition{padding:0 0 10px}
+
+.blog-seite .kicker-links,.branche-cta .kicker-links,.autor-box .kicker-links{font:600 .72rem ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--koralle-hell)}
+
+/* Übersicht */
+.blog-hero{position:relative;width:var(--wrap);margin:0 auto;padding:70px 0 40px}
+.blog-hero::before{content:"";position:absolute;inset:-120px -10% auto;height:520px;background:radial-gradient(ellipse 40% 60% at 15% 30%,rgba(255,90,60,.16),transparent 70%),radial-gradient(ellipse 40% 60% at 85% 40%,rgba(94,23,235,.26),transparent 70%);pointer-events:none;z-index:-1}
+.blog-hero .kicker-links{margin-bottom:18px}
+.blog-hero h1{font-size:clamp(2.4rem,6vw,4.6rem);max-width:15ch;letter-spacing:-.045em;line-height:1.03}
+.blog-hero h1 em,.nf-ratgeber h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--koralle-hell);letter-spacing:-.01em}
+.blog-hero-text{margin-top:22px;color:var(--muted);font-size:1.12rem;max-width:42rem}
+.blog-hero .definition{margin-top:22px}
+
+.blog-liste{width:var(--wrap);margin:0 auto;padding:10px 0 50px}
+.blog-filter{display:flex;flex-wrap:wrap;gap:8px}
+.blog-filter button{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.02);color:#dcdce3;font:500 .9rem var(--sans);cursor:pointer}
+@media (hover:hover){.blog-filter button:hover{border-color:rgba(255,90,60,.6)}}
+.blog-filter button[aria-pressed="true"]{border-color:var(--koralle);background:rgba(255,90,60,.14);color:#fff}
+.blog-status{min-height:1.4em;margin:12px 0 10px;color:var(--dim);font-size:.85rem}
+
+.blog-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.blog-grid-oben{grid-template-columns:minmax(0,1fr);margin-bottom:16px}
+.blog-karte{min-width:0}
+.blog-karte a{display:flex;flex-direction:column;height:100%;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,#101015,#0a0a0d);text-decoration:none;color:#fff;transition:border-color .2s,transform .2s}
+.blog-karte a:hover{border-color:var(--koralle);transform:translateY(-2px)}
+.blog-karte img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:#15151b}
+.blog-karte-platz{display:block;aspect-ratio:16/10;background:radial-gradient(ellipse 80% 80% at 20% 0%,rgba(168,117,255,.3),transparent 60%),#0c0b12}
+.blog-karte-text{display:flex;flex-direction:column;gap:10px;padding:20px 22px 24px;flex:1}
+.blog-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.blog-tags span,.blog-tags a{display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;border:1px solid var(--line-2);font:600 .64rem/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--koralle-hell);text-decoration:none}
+.blog-tags a:hover{border-color:var(--koralle)}
+.blog-karte-titel{font-size:1.22rem;letter-spacing:-.025em;line-height:1.18}
+.blog-karte-beschreibung{color:var(--muted);font-size:.92rem;line-height:1.5}
+.blog-karte-meta{margin-top:auto;padding-top:6px;color:var(--dim);font-size:.8rem}
+.blog-karte.gross a{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.blog-karte.gross img{aspect-ratio:auto;height:100%;min-height:360px}
+.blog-karte.gross .blog-karte-text{justify-content:center;padding:40px}
+.blog-karte.gross .blog-karte-titel{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.08}
+.blog-karte.gross .blog-karte-beschreibung{font-size:1rem}
+
+.blog-branchen{width:var(--wrap);margin:0 auto;padding:50px 0 30px}
+.blog-branchen h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.04em;margin-bottom:26px}
+.blog-branchen-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.blog-branche{display:flex;flex-direction:column;gap:8px;padding:22px;border:1px solid var(--line);border-radius:18px;text-decoration:none;background:#0c0c10;color:#fff;transition:border-color .2s}
+.blog-branche:hover{border-color:var(--koralle)}
+.blog-branche strong{font-size:1.15rem;letter-spacing:-.02em}
+.blog-branche span{color:var(--muted);font-size:.9rem}
+.blog-branche .weiter{margin-top:auto;padding-top:8px;color:#fff;font-weight:600}
+
+/* Teaser auf Startseite und Branchenseiten */
+.blog-teaser{padding:40px 0 100px}
+.blog-teaser .section-head a,.nf-ratgeber .kopf a{color:var(--koralle-hell)}
+.blog-teaser-grid{width:var(--wrap);margin:0 auto}
+.nf-ratgeber .blog-grid{margin-top:34px}
+
+/* Artikel */
+.artikel{width:var(--wrap);margin:0 auto;padding:60px 0 30px}
+.artikel-kopf{max-width:880px}
+.artikel-kopf h1{margin-top:18px;font-size:clamp(2.1rem,5vw,3.8rem);letter-spacing:-.04em;line-height:1.06;overflow-wrap:break-word;hyphens:manual;text-wrap:balance}
+.artikel-lead{margin-top:20px;font-size:1.18rem;line-height:1.55;color:#d4d4dc;max-width:46rem}
+.artikel-meta{margin-top:18px;color:var(--dim);font-size:.9rem}
+.artikel-meta a{color:#d7d7de}
+.artikel-bild{margin:38px 0 0}
+.artikel-bild img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;border-radius:24px;border:1px solid var(--line);background:#15151b}
+.artikel-bild figcaption{margin-top:10px;font-size:.78rem;color:var(--dim)}
+.artikel-bild figcaption a{color:var(--muted)}
+
+.artikel-raster{display:grid;grid-template-columns:250px minmax(0,720px);gap:64px;margin-top:50px}
+.toc{position:sticky;top:112px;align-self:start;max-height:calc(100vh - 130px);overflow:auto}
+.toc summary{list-style:none;display:flex;align-items:center;justify-content:space-between;min-height:44px;font:600 .72rem ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.toc summary::-webkit-details-marker{display:none}
+.toc ol{list-style:none;margin:6px 0 0;padding:0;border-left:1px solid var(--line)}
+.toc a{display:block;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--muted);text-decoration:none;font-size:.88rem;line-height:1.35}
+.toc a:hover,.toc a[aria-current="true"]{color:#fff;border-left-color:var(--koralle)}
+
+.artikel-text{min-width:0;font-size:1.07rem;line-height:1.75;color:#d9d9e0}
+.artikel-text>p,.artikel-text>ul,.artikel-text>ol,.artikel-text>blockquote,.artikel-text>.tabelle{margin:0 0 1.25em}
+.artikel-text h2{margin:2.1em 0 .7em;font-size:clamp(1.55rem,3vw,2.05rem);letter-spacing:-.03em;line-height:1.15;color:#fff;scroll-margin-top:110px}
+.artikel-text h3{margin:1.7em 0 .55em;font-size:1.24rem;letter-spacing:-.02em;line-height:1.25;color:#fff;scroll-margin-top:110px}
+.artikel-text a{color:var(--koralle-hell);text-underline-offset:3px}
+.artikel-text a:hover{color:#fff}
+.artikel-text strong{color:#fff;font-weight:650}
+.artikel-text ul,.artikel-text ol{padding-left:1.35em}
+.artikel-text li{margin:.45em 0}
+.artikel-text li::marker{color:var(--koralle-hell)}
+.artikel-text .md-checkliste{list-style:none;padding:0;border-bottom:1px solid var(--line)}
+.md-checkliste li{position:relative;margin:0;padding:11px 0 11px 38px;border-top:1px solid var(--line)}
+.md-checkliste li::before{content:"";position:absolute;left:2px;top:15px;width:19px;height:19px;border:1.5px solid var(--koralle);border-radius:6px}
+.artikel-text blockquote{margin-left:0;margin-right:0;padding:18px 22px;border-left:2px solid var(--koralle);background:rgba(255,90,60,.06);border-radius:0 14px 14px 0;color:#ececf2}
+.artikel-text blockquote p+p{margin-top:.7em}
+.tabelle{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#0b0b0f}
+.tabelle table{width:100%;min-width:540px;border-collapse:collapse;font-size:.92rem;line-height:1.5}
+.tabelle th,.tabelle td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tabelle tr:last-child td{border-bottom:0}
+.tabelle th{background:#141419;color:#fff;font-weight:600}
+.inline-check{font-weight:600}
+
+.kurz-gesagt{margin:0 0 2em;padding:22px 24px;border:1px solid rgba(17,217,163,.35);border-radius:18px;background:rgba(17,217,163,.06)}
+.kurz-gesagt .kurz-label{margin:0 0 8px;font:600 .7rem ui-monospace,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mint)}
+.kurz-gesagt p{color:#ececf2}
+
+.artikel-text .artikel-faq{margin-top:2.6em}
+.artikel-faq .einwand-liste{margin-top:10px}
+.artikel-faq details p{font-size:1rem;line-height:1.65}
+
+.artikel-text .autor-box{display:grid;grid-template-columns:112px minmax(0,1fr);gap:22px;align-items:start;margin-top:3em;padding:26px;border:1px solid var(--line);border-radius:22px;background:#0b0b0f}
+.autor-box img{width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:62% 30%}
+.artikel-text .autor-box h2{margin:6px 0 8px;font-size:1.4rem}
+.autor-box p{font-size:.95rem;line-height:1.6;color:#d0d0d8}
+.autor-box .wer-links{margin-top:14px}
+.autor-box .wer-links a{color:#fff}
+
+.artikel-text .branche-cta{margin-top:20px;padding:30px;border-radius:22px;border:1px solid rgba(255,90,60,.35);background:radial-gradient(ellipse 70% 100% at 0% 0%,rgba(255,90,60,.16),transparent 70%),#0c0b0b}
+.artikel-text .branche-cta h2{margin:8px 0 10px;font-size:clamp(1.4rem,3vw,1.85rem)}
+.branche-cta p{color:#d4d4dc;font-size:1rem}
+.branche-cta-aktion{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.artikel-text .branche-cta-liste{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0}
+.branche-cta-liste li{margin:0}
+.artikel-text .branche-cta-liste a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line-2);border-radius:999px;text-decoration:none;color:#fff}
+.artikel-text .branche-cta .btn{color:inherit}
+.artikel-text .branche-cta .btn-koralle{color:#140400}
+
+.verwandt{width:var(--wrap);margin:0 auto;padding:50px 0 90px}
+.verwandt h2{margin-bottom:26px;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.04em}
+
+/* Footer mit vier Spalten (Startseite, Branchen, Blog) */
+.footer-titel{margin:0 0 14px;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.footer-inner.footer-vier{grid-template-columns:1.6fr 1fr 1fr 1fr}
+
+@media (max-width:1060px){
+  .blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .blog-branchen-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .artikel-raster{grid-template-columns:minmax(0,1fr);gap:26px;margin-top:34px}
+  .toc{position:static;max-height:none;padding:2px 18px 10px;border:1px solid var(--line);border-radius:16px;background:#0b0b0f}
+  .footer-inner.footer-vier{grid-template-columns:1fr 1fr}
+  .footer-inner.footer-vier>div:first-child{grid-column:span 2}
+}
+@media (max-width:760px){
+  .blog-karte.gross a{grid-template-columns:minmax(0,1fr)}
+  .blog-karte.gross img{min-height:0;height:auto;aspect-ratio:16/10}
+  .blog-karte.gross .blog-karte-text{padding:22px}
+  .artikel-bild img{aspect-ratio:16/10;border-radius:18px}
+}
+@media (max-width:640px){
+  .blog-grid,.blog-branchen-grid{grid-template-columns:minmax(0,1fr)}
+  .blog-hero{padding-top:44px}
+  .artikel{padding-top:40px}
+  .artikel-lead{font-size:1.06rem}
+  .artikel-text{font-size:1.02rem;line-height:1.7}
+  .artikel-text .autor-box{grid-template-columns:minmax(0,1fr);padding:22px}
+  .autor-box img{width:84px;height:84px}
+  .artikel-text .branche-cta{padding:22px}
+  .branche-cta-aktion .btn{width:100%}
+  .footer-inner.footer-vier{grid-template-columns:minmax(0,1fr)}
+  .footer-inner.footer-vier>div:first-child{grid-column:auto}
+  .brotkrumen [aria-current]{max-width:18ch}
+  .artikel-kopf h1{hyphens:auto;text-wrap:wrap}
+}
