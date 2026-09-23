@@ -835,3 +835,11 @@ body:has([data-branchen-filter]) .lst-anwendung dd{color:#e6e6ec;font-size:.98re
 .fehlerseite h1{font-size:clamp(2.2rem,6vw,4rem);letter-spacing:-.045em;line-height:1.02;margin-top:24px}
 .fehlerseite p{color:var(--muted)}
 .fehlerseite-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+
+/* Alis Modulgrafiken in der KI-Abteilung und im Ablauf */
+.ki-karte .ki-bild{width:100%;height:190px;object-fit:contain;object-position:center;background:linear-gradient(180deg,#0d1512,#0a0a0d);border-radius:14px;margin-bottom:16px}
+.roadmap{position:relative}
+.ablauf-bild{display:block;width:min(280px,70%);height:auto;margin:28px auto 0}
+.zahlen-titel{width:var(--wrap);margin:0 auto 22px;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em}
+
+@media (max-width:640px){.ki-karte .ki-bild{height:150px}}
