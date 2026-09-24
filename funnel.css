@@ -837,12 +837,12 @@ body:has([data-branchen-filter]) .lst-anwendung dd{color:#e6e6ec;font-size:.98re
 .fehlerseite-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 
 /* Alis Modulgrafiken in der KI-Abteilung und im Ablauf */
-.ki-karte .ki-bild{width:100%;height:210px;object-fit:contain;object-position:center bottom;margin:-10px 0 18px;filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+.ki-karte .ki-bild{width:100%;height:280px;object-fit:contain;object-position:center bottom;margin:-10px 0 18px;filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
 .roadmap{position:relative}
 .ablauf-bild{display:block;width:min(280px,70%);height:auto;margin:28px auto 0}
 .zahlen-titel{width:var(--wrap);margin:0 auto 22px;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em}
 
-@media (max-width:640px){.ki-karte .ki-bild{height:180px}}
+@media (max-width:640px){.ki-karte .ki-bild{height:300px}}
 
 /* Zahlen und Leistungen in vier Boxen (Entwurf B, Alis Auswahl) */
 .zahlen{width:var(--wrap);margin:0 auto;padding:56px 0 40px}
@@ -850,10 +850,13 @@ body:has([data-branchen-filter]) .lst-anwendung dd{color:#e6e6ec;font-size:.98re
 .zahlen-boxen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .zahlen-boxen article{padding:24px 22px 26px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse 95% 55% at 50% 0%,rgba(168,117,255,.13),transparent 70%),#0b0b0f;text-align:center;transition:border-color .2s,transform .2s}
 .zahlen-boxen article:hover{border-color:var(--line-2);transform:translateY(-2px)}
-.zahlen-boxen img{display:block;width:100%;height:230px;object-fit:contain;margin:0 0 18px;filter:drop-shadow(0 22px 48px rgba(0,0,0,.65))}
+.zahlen-boxen img{display:block;width:100%;height:320px;object-fit:contain;margin:0 0 18px;filter:drop-shadow(0 22px 48px rgba(0,0,0,.65))}
 .zahlen-boxen strong{display:block;font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:760;letter-spacing:-.045em;color:var(--koralle-hell);line-height:1.05}
 .zahlen-boxen h3{margin-top:6px;font-size:1.12rem;letter-spacing:-.01em}
 .zahlen-boxen p{margin-top:10px;color:var(--muted);font-size:.9rem;line-height:1.45}
 .zahlen .quelle{margin-top:20px}
-@media (max-width:1060px){.zahlen-boxen{grid-template-columns:repeat(2,minmax(0,1fr))}.zahlen-boxen img{height:250px}}
-@media (max-width:640px){.zahlen{padding:36px 0 24px}.zahlen-boxen{grid-template-columns:1fr;gap:12px}.zahlen-boxen img{height:190px}}
+@media (max-width:1060px){.zahlen-boxen{grid-template-columns:repeat(2,minmax(0,1fr))}.zahlen-boxen img{height:330px}}
+@media (max-width:640px){.zahlen-zeile{flex-direction:column;gap:4px;margin-bottom:22px}.zahlen-zeile span+span::before{display:none}.zahlen{padding:36px 0 24px}.zahlen-boxen{grid-template-columns:1fr;gap:12px}.zahlen-boxen img{height:300px}}
+
+.zahlen-zeile{display:flex;flex-wrap:wrap;gap:8px 26px;margin:-14px 0 26px;color:var(--muted);font-size:.9rem}
+.zahlen-zeile span+span::before{content:"";display:inline-block;width:4px;height:4px;margin:0 22px 3px -22px;border-radius:50%;background:var(--line-2)}
