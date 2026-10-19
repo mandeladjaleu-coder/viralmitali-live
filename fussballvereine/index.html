@@ -10,6 +10,7 @@
 <title>Social Media für Fußballvereine | Viral mit Ali</title>
 <meta name="description" content="Wir übernehmen Planung, Content und Betreuung eures Vereinsauftritts. Social Media und auf Wunsch eine Vereinswebsite mit einem klaren Weg zum Probetraining.">
 <link rel="stylesheet" href="fussball.css">
+<script src="/lead.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -39,6 +40,18 @@
 <details><summary>Was kostet die Betreuung?</summary><p>Das hängt von Kanälen, Inhalten, Drehs und Websiteumfang ab. Nach dem Gespräch bekommt ihr ein Angebot mit konkreten Leistungen und Preis. Es gibt hier kein pauschales Paket, das eurem Vereinsalltag übergestülpt wird.</p></details>
 <details><summary>Garantiert ihr neue Mitglieder?</summary><p>Nein. Wir schaffen einen regelmäßigen, verständlichen Auftritt und einen klaren Kontaktweg. Ob daraus neue Mitglieder werden, hängt unter anderem vom Angebot, den freien Plätzen und der Betreuung im Verein ab.</p></details>
 </section>
-<section class="contact" id="kontakt"><p class="intro">Lasst uns euren Verein kennenlernen</p><h2>Was sollen Jugendliche<br>über euren Verein wissen?</h2><p>Schreibt uns euren Vereinsnamen und was ihr mit eurem Auftritt erreichen möchtet. Wir besprechen, welche Betreuung zu euch passt.</p><a class="button" href="mailto:martin@viralmitali.de?subject=Social%20Media%20f%C3%BCr%20unseren%20Fu%C3%9Fballverein">Vereinsauftritt per E-Mail besprechen</a><p class="small">Öffnet euer E-Mail-Programm. Versand erst durch euch.</p></section>
+<section class="contact" id="kontakt"><p class="intro">Lasst uns euren Verein kennenlernen</p><h2>Was sollen Jugendliche<br>über euren Verein wissen?</h2><p>Schreibt uns euren Vereinsnamen und was ihr mit eurem Auftritt erreichen möchtet. Wir besprechen, welche Betreuung zu euch passt.</p>
+<form class="club-inquiry" data-lead-form data-art="leistung" data-error-email="martin@viralmitali.de" method="post" action="/api/anfrage">
+<input type="hidden" name="leistung" value="Social Media und Vereinswebsite"><input type="hidden" name="branche" value="Fußballverein">
+<div class="club-fields"><label>Verein<input name="firma" autocomplete="organization" required minlength="2" maxlength="120"></label><label>Dein Name<input name="name" autocomplete="name" required minlength="2" maxlength="100"></label></div>
+<label>E-Mail für unsere Antwort<input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+<label>Was möchtet ihr verbessern?<textarea name="nachricht" rows="4" required minlength="10" maxlength="1500" placeholder="Zum Beispiel: regelmäßig Einblicke in unsere Jugendarbeit zeigen."></textarea></label>
+<label class="club-honeypot" aria-hidden="true">Dieses Feld bitte leer lassen<input name="website" autocomplete="off" tabindex="-1"></label>
+<p class="club-privacy">Wir verwenden deine Angaben, um diese Anfrage zu beantworten. Mit dem Absenden bestellst du keine Leistung und keinen Newsletter. <a href="/datenschutz/">Datenschutz</a></p>
+<p class="club-error" data-lead-fehler role="alert" hidden></p><button class="button" type="submit">Vereinsgespräch anfragen</button>
+</form>
+<div class="club-confirmation" data-lead-ok role="status" hidden><h3 tabindex="-1">Eure Anfrage ist angekommen.</h3><p>Danke! Wir lesen, was ihr vorhabt, und melden uns über die angegebene E-Mail-Adresse. Ein Angebot folgt erst, wenn der Umfang geklärt ist.</p></div>
+<p class="small">Lieber direkt schreiben? <a href="mailto:martin@viralmitali.de?subject=Social%20Media%20f%C3%BCr%20unseren%20Fu%C3%9Fballverein">martin@viralmitali.de</a></p>
+<noscript><p class="small">Für das Formular ist JavaScript nötig. Schreib uns bitte direkt per E-Mail.</p></noscript></section>
 </main><footer><a class="brand" href="/">Viral mit Ali</a><div><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div></footer>
 </body></html>
