@@ -68,6 +68,8 @@
         const r = await fetch((document.querySelector('meta[name="vma-api"]')?.content || '') + '/api/anfrage', { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' }, body: JSON.stringify(daten) });
         if (r.status === 429) throw new Error('viele');
         if (!r.ok) throw new Error(String(r.status));
+        const antwort = await r.json();
+        if (antwort?.ok !== true) throw new Error('eingang_nicht_bestaetigt');
         zaehle('lead_success', art);
         form.hidden = true;
         if (ok) {
@@ -79,7 +81,7 @@
       } catch (e) {
         zeigeFehler(e.message === 'viele'
           ? 'Gerade kommen sehr viele Anfragen. Versuch es in einer Minute noch einmal.'
-          : 'Das hat nicht geklappt, das liegt an uns. Schreib uns bitte per WhatsApp oder E-Mail an info@innocostudio.com.');
+          : `Das hat nicht geklappt. Deine Eingaben bleiben erhalten. Schreib uns bitte per E-Mail an ${form.dataset.errorEmail || 'info@innocostudio.com'}.`);
       } finally {
         knopf.disabled = false;
         knopf.innerHTML = inhalt;
