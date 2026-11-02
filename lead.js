@@ -81,7 +81,7 @@
       } catch (e) {
         zeigeFehler(e.message === 'viele'
           ? 'Gerade kommen sehr viele Anfragen. Versuch es in einer Minute noch einmal.'
-          : `Das hat nicht geklappt. Deine Eingaben bleiben erhalten. Schreib uns bitte per E-Mail an ${form.dataset.errorEmail || 'info@innocostudio.com'}.`);
+          : `Das hat nicht geklappt. Deine Eingaben bleiben erhalten. Schreib uns bitte per E-Mail an ${form.dataset.errorEmail || 'info@viralmitali.de'}.`);
       } finally {
         knopf.disabled = false;
         knopf.innerHTML = inhalt;
